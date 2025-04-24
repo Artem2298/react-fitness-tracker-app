@@ -1,0 +1,31 @@
+{
+  "name": "back",
+  "version": "1.0.0",
+  "description": "Backend for training application",
+  "main": "src/index.js",
+  "type": "module",
+  "dependencies": {
+    "@prisma/client": "6.6.0",
+    "cors": "2.8.5",
+    "dotenv": "16.4.7",
+    "express": "4.21.2"
+  },
+  "devDependencies": {
+    "nodemon": "3.1.9",
+    "prisma": "6.6.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.cjs"
+  },
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "db": "npx prisma studio",
+    "start": "node src/index.js",
+    "migrate": "prisma migrate dev",
+    "generate": "prisma generate",
+    "seed": "prisma db seed"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

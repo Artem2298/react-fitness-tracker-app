@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int         @id @default(autoincrement())
+  first_name  String
+  last_name   String
+  email       String      @unique
+  training    Training[]
+  comments    Comment[]
+  followers   Follow[]    @relation("Following")
+  following   Follow[]    @relation("Followers")
+  created_at  DateTime    @default(now())
+  birthday    DateTime
+  avatar_url  String?  
+  bio         String?
+}
+
+model Training {
+  id          Int         @id @default(autoincrement())
+  user        User        @relation(fields: [user_id], references: [id])
+  user_id     Int
+  title       String
+  comment     Comment[]
+  type        TrainingType
+  distance    Float
+  duration    Float
+  date        DateTime    @default(now())
+  description String?
+  is_public   Boolean
+}
+
+model Comment {
+  id          Int         @id @default(autoincrement())
+  content     String
+  created_at  DateTime    @default(now())
+  updated_at  DateTime?   @updatedAt
+  deleted_at  DateTime?    
+  is_deleted  Boolean     @default(false)
+  author      User        @relation(fields: [author_id], references: [id])
+  author_id   Int
+  training    Training    @relation(fields: [training_id], references: [id])
+  training_id Int
+}
+
+model Follow {
+  id            Int         @id @default(autoincrement())
+  follower      User        @relation("Following", fields: [follower_id],references: [id])
+  follower_id   Int
+  following     User        @relation("Followers", fields: [following_id],references: [id])
+  following_id  Int
+  created_at    DateTime    @default(now())
+  @@unique([follower_id, following_id])      
+}
+
+enum TrainingType {
+  WALK
+  RUN
+  BIKE
+  SWIM
+  SKI
+}
