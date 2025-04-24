@@ -1,14 +1,19 @@
-## Project VAJ
+# ArtoFit
 
-### Instructions
+## 📌 Overview
+ArtoFit is a fitness tracking application developed as part of the VAJ (JavaScript Application Development) course at the university. 
 
-You will find instrucions on https://github.com/vsb-vaj
+## 👨‍💻 Developer
+- **Developer**: Artem Kuznetsov (aka KUZ0061)
+- **Background**: 
+  - Solo developer of the entire project
+  - Passionate athlete specializing in running, swimming, and cycling
+  - Created ArtoFit as the first iteration of his vision for a comprehensive training tracker
+  - Plans to expand functionality in future versions
 
-Split your projects into 2 JS projects. You will have 2x package.json. One will be for BE in folder be, one will be for FE in folder fe. 
-
-You can write instructions to your project either in this README ind in separeate README files in the folders be, fe. 
-
-Delete this text after you finish :) 
-
-Good luck!
-
+## 🛠 Technologies Used
+First-time implementation with:
+- React
+- Prisma
+- Tailwind CSS
+- shadcn/ui library
