@@ -2,11 +2,6 @@
 
 Full-stack web application for tracking sports activities (running, cycling, swimming, walking, skiing). Built with **React** + **Express** + **Prisma**.
 
-![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
-![Express](https://img.shields.io/badge/Express-4-000000?logo=express&logoColor=white)
-![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3-06B6D4?logo=tailwindcss&logoColor=white)
-
 ## Features
 
 - **Training management** — create, view and delete training sessions with a built-in timer
