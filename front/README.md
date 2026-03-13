@@ -1,33 +1,32 @@
-🧑‍💻 Frontend aplikace ArtoFit
+# ArtoFit — Frontend
 
-Tento projekt je frontendová část aplikace ArtoFit vytvořená pomocí React + Vite + Tailwind CSS. Komunikuje s backendovým API (např. na http://localhost:3000) a umožňuje uživateli spravovat tréninky a profil.
+React 19 SPA for the ArtoFit fitness tracker.
 
-1. Instaluj závislosti:
+## Setup
+
+```bash
 npm install
+npm run dev    # http://localhost:5173
+```
 
-2. Spusť vývojový server:
-npm run dev
-Frontend poběží na adrese http://localhost:5173
+## Tech
 
-🛠️ Použité technologie
-React 19
-React Router DOM
-Vite – rychlý bundler pro vývoj
-Tailwind CSS – pro stylování
-Axios – pro komunikaci s backendem
-React Modal – pro modální okna
-Radix UI + shadcn-ui – pro přístupné UI komponenty
+- React 19 + React Router v7
+- Vite (bundler)
+- Tailwind CSS 3 + shadcn/ui
+- Axios (API client)
+- Zod (validation)
 
-📁 Struktura projektu
+## Structure
+
+```
 src/
-├── components/         # Znovupoužitelné komponenty UI
-├── context/            # Context API (např. UserContext)
-├── pages/              # Jednotlivé stránky aplikace (Home, Profile, atd.)
-├── router/             # Definice tras (React Router)
-├── App.jsx             # Kořenová komponenta
-├── main.jsx            # Vstupní bod Reactu
-├── index.css           # Globální styly (Tailwind)
+├── components/    # Reusable UI (TrainingCard, UserSidebar, etc.)
+├── context/       # React Context (UserProvider)
+├── lib/           # API client, constants, validation schemas
+├── pages/         # Route pages (Home, TrainingPage, UserProfile)
+├── router/        # Route definitions
+└── services/      # API service layer
+```
 
-
-🔗 Důležité poznámky
-Backend musí být spuštěn na http://localhost:3000, nebo změň URL ve fetch/axios voláních.
+Requires backend running on `http://localhost:3000`.

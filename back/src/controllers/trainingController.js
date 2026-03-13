@@ -1,5 +1,4 @@
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require('../lib/prisma');
 
 exports.getTrainings = async (req, res) => {
     try {
@@ -105,29 +104,27 @@ exports.deleteTraining = async (req, res) => {
     }
 }
 
-exports.updateTraning = async (req, res) => {
-    const { id } = req.params 
-    const { title, type, distance, duration, description, is_public } = req.body
+exports.updateTraining = async (req, res) => {
+    const { id } = req.params;
+    const { title, type, distance, duration, description, is_public } = req.body;
 
-    const updateData = {}
+    const updateData = {};
 
-    if (title) { updateData.title = title }
-    if (type) { updateData.type = type }
-    if (distance) { updateData.distance = distance }
-    if (duration) { updateData.duration = duration }
-    if (description) { updateData.description = description }
-    if (is_public) { updateData.is_public = is_public }
+    if (title) { updateData.title = title; }
+    if (type) { updateData.type = type; }
+    if (distance) { updateData.distance = distance; }
+    if (duration) { updateData.duration = duration; }
+    if (description) { updateData.description = description; }
+    if (is_public !== undefined) { updateData.is_public = is_public; }
 
     try {
-        const traning = await prisma.training.update({
+        const training = await prisma.training.update({
             where: { id: Number(id) },
             data: updateData
-        })
+        });
 
-        if (!traning) { return res.status(404).json({ error: "ERROR with updating training. Training not found" }) }
-        
-        res.status(200).json({ message: "Tranining was updated succesfully" })
+        res.status(200).json(training);
     } catch (error) {
-        res.status(500).json({ error: "ERROR 500 with updating training." })
+        res.status(500).json({ error: "Error updating training" });
     }
-}
+};

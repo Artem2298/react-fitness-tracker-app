@@ -1,6 +1,5 @@
 // src/controllers/userController.js
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
+const prisma = require('../lib/prisma');
 
 //  CREATE NEW USER
 exports.createUser = async (req, res) => {
@@ -36,10 +35,10 @@ exports.getSpecificUser = async (req, res) => {
             }
         })
         if (!user) {
-            res.status(404).json({ error: "User not found" })
+            return res.status(404).json({ error: "User not found" });
         }
-        
-        res.status(200).json(user)
+
+        res.status(200).json(user);
     } catch {
         res.status(500).json({ error: "Error with getting specific user" })
     }
@@ -55,7 +54,7 @@ exports.deleteUser = async (req, res) => {
         })
 
         if (!user) {
-            res.status(404).json({ error: "ERROR with delet user. User not found"})
+            return res.status(404).json({ error: "User not found" });
         }
 
         await prisma.user.delete({

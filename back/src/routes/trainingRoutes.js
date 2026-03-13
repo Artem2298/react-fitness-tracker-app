@@ -8,6 +8,6 @@ router.get('/user/:userId', trainingController.getUserTrainings);
 router.get('/:id', trainingController.getSpecificTraining);
 router.post('/', trainingController.createTraining);
 router.delete('/:id', trainingController.deleteTraining);
-router.patch('/:id', trainingController.updateTraning);
+router.patch('/:id', trainingController.updateTraining);
 
 module.exports = router;

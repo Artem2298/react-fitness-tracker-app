@@ -6,8 +6,6 @@ const commentRoutes = require('./routes/commentRoutes');
 const followRoutes = require('./routes/followRoutes');
 
 
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
 const app = express();
 const port = 3000;
 

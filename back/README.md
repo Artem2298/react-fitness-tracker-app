@@ -1,31 +1,27 @@
-🏃 Backend pro aplikaci tréninku
-Tento projekt je backendová část tréninkové aplikace postavená pomocí Node.js, Express a Prisma ORM se SQLite databází.
+# ArtoFit — Backend
 
-📦 Instalace
-1. Klonuj repozitář nebo stáhni tento projekt do svého počítače:
-git clone https://github.com/2025s-project-kuz0061.git
+Express.js REST API for the ArtoFit fitness tracker.
 
-2. Nainstaluj závislosti:
+## Setup
+
+```bash
 npm install
+npx prisma generate
+npm run dev    # http://localhost:3000
+```
 
-3. Spusť migraci databáze:
-npm run migrate
+## Scripts
 
-4. Spuštění serveru
-npm run dev
+| Script | Description |
+|--------|-------------|
+| `npm run dev` | Start with nodemon |
+| `npm start` | Start with Node.js |
+| `npm run db` | Open Prisma Studio |
+| `npm run migrate` | Run database migrations |
 
-🔧 Dostupné skripty
-Skript          |   Popis
-npm run dev     |   Spustí server s nodemon
-npm start       |   Spustí server klasicky pomocí Node.js
-npm run db      |   Spustí Prisma Studio
-npm run migrate |   Spustí migraci databáze
-npm run seed    |   Seeduje databázi daty (pokud existuje skript)
+## Tech
 
-🛠 Použité technologie
-Node.js
-Express.js
-Prisma ORM
-SQLite jako databáze
-dotenv pro správu proměnných prostředí
-nodemon pro vývoj
+- Express.js + CORS
+- Prisma ORM (singleton pattern)
+- SQLite database
+- RESTful CRUD for users, trainings, comments, follows

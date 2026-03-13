@@ -1,9 +1,16 @@
-// src/services/userService.js
+import api from '@/lib/api';
+
+export async function getUser(userId) {
+  const { data } = await api.get(`/users/${userId}`);
+  return data;
+}
+
+export async function getAllUsers() {
+  const { data } = await api.get('/users');
+  return data;
+}
 
 export async function getFollowedUsers(userId) {
-    const res = await fetch(`http://localhost:3000/follows/${userId}/following`);
-    if (!res.ok) throw new Error('Nepodařilo se načíst following');
-    const data = await res.json();
-    return data.following;
-  }
-  
+  const { data } = await api.get(`/follows/${userId}/following`);
+  return data.following;
+}

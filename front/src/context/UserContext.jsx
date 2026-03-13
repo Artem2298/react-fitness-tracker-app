@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+import { getUser } from '@/services/userService';
 
 const UserContext = createContext(null);
 
@@ -6,8 +7,7 @@ export function UserProvider({ children }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:3000/users/4')
-      .then((res) => res.json())
+    getUser(4)
       .then((data) => setUser(data))
       .catch((err) => console.error('Chyba při načítání uživatele:', err));
   }, []);
