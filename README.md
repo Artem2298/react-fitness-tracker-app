@@ -119,8 +119,3 @@ cd front
 npm install
 npm run dev          # starts on http://localhost:5173
 ```
-
-## Author
-
-**Artem Kuznecov** (KUZ0061)
-University project for VAJ (Vývoj aplikací v JavaScriptu)
